@@ -1,0 +1,11 @@
+.counter { 
+    width: 50%;
+    margin: 0 auto;
+}
+
+.btnCounter,
+.btnAdd {
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
