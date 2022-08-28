@@ -1,0 +1,26 @@
+.detail-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.detail-img {
+    width: 30%;
+}
+
+.detail-content {
+    text-align: center;
+    width: 50%;
+}
+
+.detail-content h2 {
+    margin: 1.5em 0;
+    font-size: 2.5em;
+}
+
+.detail-content p {
+    margin: 2.3em 0;
+}
+
+.detail-content__price {
+    font-size: 1.5em;
+}
