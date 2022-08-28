@@ -1,0 +1,8 @@
+.card {
+    grid-area: "producto";
+    margin: 0 auto;
+}
+
+.card-name {
+    height: 2.5em;
+}

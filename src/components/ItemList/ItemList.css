@@ -1,0 +1,4 @@
+.container-cards {
+    display: grid;
+    grid-template-areas: "producto producto producto producto";
+}

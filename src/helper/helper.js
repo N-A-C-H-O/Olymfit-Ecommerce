@@ -28,13 +28,13 @@ const listaProductos = [
     },
     {
         id: 4, 
-        title:'Remera Nike Sport Clash Superset Energy', 
+        name:'Remera Nike Sport Clash Superset Energy', 
         price: 2000, 
         image: Producto4
     },
     {
         id: 5, 
-        title: 'Remera adidas Yoga Aeroready Motion', 
+        name: 'Remera adidas Yoga Aeroready Motion', 
         price: 2000, 
         image: Producto5
     },
