@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { ItemList } from "../ItemList/ItemList";
 import { promiseProductos } from "../../helper/helper";
-import { SpinnerComp } from "../Spinner/Spinner"
+import { SpinnerComp } from "../Spinner/Spinner";
 
 export const ItemListContainer = (props) => {
     const [productos,setProductos] = useState([]);
@@ -14,7 +14,7 @@ export const ItemListContainer = (props) => {
             setProductos(data);
             setLoading(false);
         } catch (error) {
-            console.log(error);
+            console.log(`Error al intentar conectar con el servidor ${error}`);
         }
     }
 
@@ -23,7 +23,7 @@ export const ItemListContainer = (props) => {
     },[]);
 
     const agregarCarrito = (items) => {
-        alert(`Sumaste ${items} productos nuevos a tu carrito`)
+        alert(`Sumaste ${items} productos nuevos a tu carrito`);
     }
 
     return (
@@ -32,7 +32,7 @@ export const ItemListContainer = (props) => {
             <ItemCount initial={1} stock={5} onAdd={agregarCarrito}  />
             <hr/>
             {
-                loading ? <SpinnerComp /> : <ItemList items={productos}/>
+                loading ? <SpinnerComp/> : <ItemList items={productos}/>
             }
         </>
     )

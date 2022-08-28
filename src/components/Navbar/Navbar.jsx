@@ -19,8 +19,7 @@ export const NavbarComp = () => {
                         <NavDropdown title="Categorías" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Camisetas</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Camperas</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Accesorios</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Accesorios</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

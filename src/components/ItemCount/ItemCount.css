@@ -1,10 +1,10 @@
-.counter { 
+.counter-container { 
     width: 50%;
     margin: 0 auto;
 }
 
-.btnCounter,
-.btnAdd {
+.counter-btn,
+.counter-add {
     color: white;
     border: none;
     border-radius: 10px;
