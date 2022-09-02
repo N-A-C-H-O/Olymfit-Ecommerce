@@ -10,7 +10,9 @@ export const NavbarComp = () => {
     return(
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="#home">OlymFit</Navbar.Brand>
+                <LinkContainer to="/">
+                    <Navbar.Brand>OlymFit</Navbar.Brand>
+                </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
                     <Nav>
