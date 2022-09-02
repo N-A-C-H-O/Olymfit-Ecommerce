@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWidget } from '../CartWidget/CartWidget';
+import { LinkContainer } from "react-router-bootstrap";
 
 export const NavbarComp = () => {
     return(
@@ -13,14 +14,26 @@ export const NavbarComp = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
                     <Nav>
-                        <Nav.Link href="#home">Inicio</Nav.Link>
-                        <Nav.Link href="#link">Nosotros</Nav.Link>
-                        <Nav.Link href="#link">Contacto</Nav.Link>
+                        <LinkContainer to="/">
+                            <Nav.Link>Inicio</Nav.Link>
+                        </LinkContainer>
                         <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Camisetas</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Camperas</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Accesorios</NavDropdown.Item>
+                            <LinkContainer to="/categoria/camisetas">
+                                <NavDropdown.Item >Camisetas</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to="/categoria/camperas">
+                                <NavDropdown.Item >Camperas</NavDropdown.Item>
+                            </LinkContainer>
+                            <LinkContainer to="/categoria/accesorios">
+                                <NavDropdown.Item >Accesorios</NavDropdown.Item>
+                            </LinkContainer>
                         </NavDropdown>
+                        <LinkContainer to="/nosotros">
+                            <Nav.Link>Nosotros</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer to="/contacto">
+                            <Nav.Link>Contacto</Nav.Link>
+                        </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
                 <div className="container-cart">

@@ -15,6 +15,7 @@ const listaProductos = [
         image: Producto1,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        /* categoria: "camisetas", */
     },
     {
         id: 2,
@@ -23,6 +24,7 @@ const listaProductos = [
         image: Producto2,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        categoria: "camisetas",
     },
     {
         id: 3,
@@ -31,6 +33,7 @@ const listaProductos = [
         image: Producto3,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        categoria: "camisetas",
     },
     {
         id: 4, 
@@ -39,6 +42,7 @@ const listaProductos = [
         image: Producto4,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        /* categoria: "camisetas", */
     },
     {
         id: 5, 
@@ -47,6 +51,7 @@ const listaProductos = [
         image: Producto5,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        categoria: "camisetas",
     },
     {
         id: 6, 
@@ -55,6 +60,7 @@ const listaProductos = [
         image: Producto6,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        /* categoria: "camisetas", */
     },
     {
         id: 7, 
@@ -63,6 +69,7 @@ const listaProductos = [
         image: Producto7,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        /* categoria: "camisetas", */
     },
     {
         id: 8, 
@@ -71,6 +78,7 @@ const listaProductos = [
         image: Producto8,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in pellentesque ipsum.",
         stock: 5,
+        categoria: "camisetas",
     },
 ];
 
