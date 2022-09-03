@@ -1,9 +1,12 @@
 import Spinner from 'react-bootstrap/Spinner';
+import "./Spinner.css";
 
 export const SpinnerComp = () => {
   return (
-    <Spinner animation="border" role="status" className="d-block mx-auto my-5">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+    <div className="spinner-container">
+      <Spinner animation="border" role="status" className="spinner">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
   );
 }

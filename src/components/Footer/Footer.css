@@ -46,8 +46,10 @@ footer {
 
 .copyright {
     padding: 2em;
+    background-color: grey;
 }
 
 .copyright p {
     text-align: center;
+    color: rgb(45, 45, 45);
 }
