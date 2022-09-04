@@ -5,42 +5,47 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWidget } from '../CartWidget/CartWidget';
 import { LinkContainer } from "react-router-bootstrap";
+import Logo from "../../assets/images/logo.png"
 
 export const NavbarComp = () => {
     return(
-        <Navbar bg="light" expand="lg">
+        <Navbar className='navbar-container' expand="lg">
             <Container>
-                <LinkContainer to="/">
-                    <Navbar.Brand>OlymFit</Navbar.Brand>
+                <LinkContainer to="/" className="logo-container">
+                    <Navbar.Brand><img src={Logo} alt="Logo" className='logo'/></Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
                     <Nav>
                         <LinkContainer to="/">
-                            <Nav.Link>Inicio</Nav.Link>
+                            <Nav.Link className="navbar-link fs-4 me-5">Inicio</Nav.Link>
                         </LinkContainer>
-                        <NavDropdown title="Categorías" id="basic-nav-dropdown">
-                            <LinkContainer to="/categoria/camisetas">
-                                <NavDropdown.Item >Camisetas</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to="/categoria/camperas">
-                                <NavDropdown.Item >Camperas</NavDropdown.Item>
-                            </LinkContainer>
-                            <LinkContainer to="/categoria/accesorios">
-                                <NavDropdown.Item >Accesorios</NavDropdown.Item>
-                            </LinkContainer>
-                        </NavDropdown>
+                        <div class="navbar-link fs-4 me-5">
+                            <NavDropdown title="Categorías" id="basic-nav-dropdown">
+                                <LinkContainer to="/categoria/camisetas">
+                                    <NavDropdown.Item className="fs-5">Camisetas</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/categoria/camperas">
+                                    <NavDropdown.Item className="fs-5">Camperas</NavDropdown.Item>
+                                </LinkContainer>
+                                <LinkContainer to="/categoria/accesorios">
+                                    <NavDropdown.Item className="fs-5">Accesorios</NavDropdown.Item>
+                                </LinkContainer>
+                            </NavDropdown>
+                        </div>
                         <LinkContainer to="/nosotros">
-                            <Nav.Link>Nosotros</Nav.Link>
+                            <Nav.Link className="navbar-link fs-4 me-5">Nosotros</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/contacto">
-                            <Nav.Link>Contacto</Nav.Link>
+                            <Nav.Link className="navbar-link fs-4 me-5">Contacto</Nav.Link>
+                        </LinkContainer>
+                        <LinkContainer  to="/cart">
+                            <div className="cart-container navbar-link">
+                                <CartWidget />
+                            </div>
                         </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
-                <div className="container-cart">
-                    <CartWidget />
-                </div>
             </Container>
         </Navbar>
     )
