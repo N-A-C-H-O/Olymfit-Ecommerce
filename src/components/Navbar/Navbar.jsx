@@ -23,13 +23,13 @@ export const NavbarComp = () => {
                         <div class="navbar-link fs-4 me-5">
                             <NavDropdown title="Categorías" id="basic-nav-dropdown">
                                 <LinkContainer to="/categoria/camisetas">
-                                    <NavDropdown.Item className="fs-5">Camisetas</NavDropdown.Item>
+                                    <NavDropdown.Item className="fs-5 dropdown-item">Camisetas</NavDropdown.Item>
                                 </LinkContainer>
                                 <LinkContainer to="/categoria/camperas">
-                                    <NavDropdown.Item className="fs-5">Camperas</NavDropdown.Item>
+                                    <NavDropdown.Item className="fs-5 dropdown-item">Camperas</NavDropdown.Item>
                                 </LinkContainer>
                                 <LinkContainer to="/categoria/accesorios">
-                                    <NavDropdown.Item className="fs-5">Accesorios</NavDropdown.Item>
+                                    <NavDropdown.Item className="fs-5 dropdown-item">Accesorios</NavDropdown.Item>
                                 </LinkContainer>
                             </NavDropdown>
                         </div>

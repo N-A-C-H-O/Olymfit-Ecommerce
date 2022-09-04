@@ -1,7 +1,7 @@
 .navbar-container {
-    background-color: #b4b388;
+    background-color: #ccef00;
     margin-bottom: 5em;
-    color: #5a5a38;
+    color: black;
 }
 
 .logo-container {
@@ -11,6 +11,14 @@
 
 .logo {
     width: 80%;
+}
+
+.dropdown-item:focus {
+    background-color: black !important;
+}
+
+.dropdown-item.active {
+    background-color: black !important;
 }
 
 .cart-container {

@@ -6,3 +6,10 @@
 .card-name {
     height: 2.5em;
 }
+
+
+.card-btn {
+    width: 45%;
+    margin: 0 auto;
+}
+
