@@ -22,7 +22,7 @@
 </ul><ul>
 <li>React-router-bootstrap</li>
 </ul><h2>Screenshots</h2>
-<hr><p><img src="https://i.imgur.com/57nL55m.gif" alt=""></p><h2>Setup</h2>
+<hr><img src="https://i.imgur.com/57nL55m.gif" width=600><h2>Setup</h2>
 <hr><p>Descarga o clona este proyecto en tu repositorio local.</p>
 <p>Requerimientos:</p>
 <ul>
@@ -40,4 +40,4 @@
 <p>Desplegar servidor: <code>npm start</code></p>
 <p>Visualizar: se abre una nueva pestaña en el navegador en el puerto 3000 o dirígete a <code>http://localhost:3000/</code></p><h2>Project Status</h2>
 <hr><p>El proyecto todavía se encuentra en desarrollo.</p><h2>Contact</h2>
-<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/ignacio-kruchowski/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="https://github.com/N-A-C-H-O"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a></p>
+<hr><p><span style="margin-right: 80px;"></span><a href="https://www.linkedin.com/in/ignacio-kruchowski/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 5%;"></a><span style="margin-right: 80px;"></span><a href="https://github.com/N-A-C-H-O"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 5%;"></a></p>
