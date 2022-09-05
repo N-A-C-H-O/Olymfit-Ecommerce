@@ -15,7 +15,7 @@ export const NavbarComp = () => {
                     <Navbar.Brand><img src={Logo} alt="Logo" className='logo'/></Navbar.Brand>
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center navbar-collapse">
                     <Nav>
                         <LinkContainer to="/">
                             <Nav.Link className="navbar-link fs-4 me-5">Inicio</Nav.Link>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-/* import { Link } from "react-router-dom"; */
 import { ItemCount } from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 
@@ -20,9 +19,8 @@ export const ItemDetail = ({item}) => {
                 <p className="detail-content__description">{item.description}</p>
                 <p className="detail-content__price">${item.price}</p>
                 {
-                    productosAgregados ? <LinkContainer to="/cart"><button className="btn btn-dark">Ir al carrito</button></LinkContainer> : <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
+                    productosAgregados ? <LinkContainer to="/cart"><button className="btn btn-dark mb-4 p-2">Ir al carrito</button></LinkContainer> : <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
                 }
-
             </div>
         </div>
     );

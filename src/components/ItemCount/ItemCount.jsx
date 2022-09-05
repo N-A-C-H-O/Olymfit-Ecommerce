@@ -13,7 +13,7 @@ export const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return(
-        <div className="counter-container">
+        <div className="counter-container mb-4">
             <div className="counter-manage d-flex justify-content-center my-4 align-items-center">
                 <button disabled={counter === stock} className="counter-btn btn btn-dark fw-bold" onClick={increase}>+</button>
                 <span className="displayCounter fs-1 mx-4">{counter}</span>

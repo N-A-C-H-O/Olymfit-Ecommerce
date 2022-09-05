@@ -9,7 +9,7 @@ export const NoPage = () => {
             <h3>404</h3>
             <p>Lo sentimos, no pudimos encontrar la página que estabas buscando.</p>
             <LinkContainer to="/">
-                <button className="btn btn-dark">Volver al inicio</button>
+                <button className="btn btn-dark p-2">Volver</button>
             </LinkContainer>
         </div>
     )

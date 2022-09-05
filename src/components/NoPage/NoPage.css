@@ -1,11 +1,12 @@
 .nopage-container {
-    width: 50%;
+    /* width: 50%; */
     margin: 0 auto;
     padding: 8em;
+    display: flex;
     text-align: center;
 }
 
-.nopage-container P:first-child {
+/* .nopage-container P:first-child {
     font-size: 5em;
     margin-bottom: 1em;
 }
@@ -18,4 +19,37 @@
 .nopage-container p {
     margin-bottom: 3em;
     font-size: 1.4em;
+} */
+
+@media screen and (min-width: 320px) {
+    
+    .nopage-container {
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .nopage-container P:first-child {
+        font-size: 3.5em;
+        white-space: nowrap;
+        margin-bottom: 1em;
+        /* background-color: blue; */
+    }
+
+    .nopage-container h3 {
+        font-size: 4.5em;
+        margin-bottom: 0.4em;
+    }
+    
+    .nopage-container p {
+        margin-bottom: 3em;
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .nopage-container button {
+        width: 15%;
+    }
 }
