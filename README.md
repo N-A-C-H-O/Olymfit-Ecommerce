@@ -22,7 +22,7 @@
 </ul><ul>
 <li>React-router-bootstrap</li>
 </ul><h2>Screenshots</h2>
-<hr><img src="https://i.imgur.com/57nL55m.gif" width=600><h2>Setup</h2>
+<hr><img src="https://media.giphy.com/media/BseAG422Z6y91oif9P/giphy.gif" width=600><h2>Setup</h2>
 <hr><p>Descarga o clona este proyecto en tu repositorio local.</p>
 <p>Requerimientos:</p>
 <ul>
