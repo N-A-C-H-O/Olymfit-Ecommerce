@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { CartWidget } from '../CartWidget/CartWidget';
 import { LinkContainer } from "react-router-bootstrap";
-import Logo from "../../assets/images/logo.png"
+import Logo from "../../assets/images/logo.png";
 
 export const NavbarComp = () => {
     return(
@@ -39,8 +39,8 @@ export const NavbarComp = () => {
                         <LinkContainer to="/contacto">
                             <Nav.Link className="navbar-link fs-4 me-5">Contacto</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer  to="/cart">
-                            <div className="cart-container navbar-link">
+                        <LinkContainer to="/cart">
+                            <div className="cart-container">
                                 <CartWidget />
                             </div>
                         </LinkContainer>

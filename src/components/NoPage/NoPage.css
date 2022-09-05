@@ -1,0 +1,21 @@
+.nopage-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 8em;
+    text-align: center;
+}
+
+.nopage-container P:first-child {
+    font-size: 5em;
+    margin-bottom: 1em;
+}
+
+.nopage-container h3 {
+    font-size: 7em;
+    margin-bottom: 0.4em;
+}
+
+.nopage-container p {
+    margin-bottom: 3em;
+    font-size: 1.4em;
+}
