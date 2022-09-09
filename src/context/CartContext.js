@@ -10,11 +10,18 @@ export const CartProvider = ({children}) => {
         return cartList.some((item) => item.id === product.id);
     }
 
-    const addCart = (newProduct) => {
+    const addCart = (product, quantity) => {
+
+        const newProduct = {...product, quantity: quantity};
         
         if (isInCart(newProduct)) {
             const productInCart = cartList.find((item) => item.id === newProduct.id);
-            productInCart.quantity += newProduct.quantity;
+            if ( productInCart.quantity + quantity <= product.stock) {
+                productInCart.quantity += quantity;
+                alert('Nuevo producto agregado');
+            } else {
+                alert('Stock no disponible')
+            }
         } 
         
         else {
@@ -29,9 +36,20 @@ export const CartProvider = ({children}) => {
         setCartList(newCartList);
     }
 
+    const clearCart = () => {
+        setCartList([])
+    }
+
+
+    const getTotalPrice = () => {
+        return cartList.reduce((acc,item) => acc + item.price,0)
+    }
+
+
+
 
     return(
-        <CartContext.Provider value={{cartList,addCart,removeCart}}>
+        <CartContext.Provider value={{cartList,addCart,removeCart,getTotalPrice,clearCart}}>
             {children}
         </CartContext.Provider>
     )

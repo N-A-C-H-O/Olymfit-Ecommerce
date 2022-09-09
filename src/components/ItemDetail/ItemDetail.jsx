@@ -8,13 +8,11 @@ import { CartContext } from "../../context/CartContext";
 export const ItemDetail = ({item}) => {
     const { addCart } = useContext(CartContext);
     
-    const [productosAgregados, setProductosAgregados ] = useState(0);
+    const [productosAgregados, setProductosAgregados ] = useState(false);
 
     const agregarProductos = (items) => {
-        setProductosAgregados(items);
-        alert(`Agregaste ${items} productos a tu carrito`);
-        const newCartProduct = {...item, quantity: items}
-        addCart(newCartProduct);
+        setProductosAgregados(true)
+        addCart(item, items);
     }
 
     return(
