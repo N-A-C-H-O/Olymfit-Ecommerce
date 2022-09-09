@@ -1,14 +1,20 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { ItemCount } from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
+import { CartContext } from "../../context/CartContext";
 
 export const ItemDetail = ({item}) => {
+    const { addCart } = useContext(CartContext);
+    
     const [productosAgregados, setProductosAgregados ] = useState(0);
 
     const agregarProductos = (items) => {
         setProductosAgregados(items);
-        alert(`Agregaste ${items} productos a tu carrito`)
+        alert(`Agregaste ${items} productos a tu carrito`);
+        const newCartProduct = {...item, quantity: items}
+        addCart(newCartProduct);
     }
 
     return(

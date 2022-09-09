@@ -4,7 +4,6 @@ footer {
 
 .footer-container {
     display: grid;
-    /* grid-template-columns: repeat(3,1fr); */
     background-color: black;
     color: white;
 }
@@ -66,8 +65,10 @@ footer {
     .footer-container {
         grid-template-columns: repeat(3,1fr);
     }
-    
+}
+
+@media screen and (min-width: 1024px) {
     .footer-section-content {
-        text-align: center;
+        text-align: left;
     }
 }
