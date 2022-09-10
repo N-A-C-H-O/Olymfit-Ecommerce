@@ -4,3 +4,18 @@
     width: 95%;
     margin: 0 auto;
 }
+
+.cart-list-info {
+    padding: 1em;
+    margin: 5em auto;
+    width: 30%;
+    display: flex; 
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.cart-list-info p {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-left: 2em;
+}
