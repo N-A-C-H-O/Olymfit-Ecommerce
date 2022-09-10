@@ -1,7 +1,7 @@
 .detail-container {
     display: flex;
     align-items: center;
-    border: 2px solid rgba(0,0,0,.171);
+    border: 2px solid #00000028;
     border-radius: 20px;
     width: 90%;
     margin: 7em auto 0;

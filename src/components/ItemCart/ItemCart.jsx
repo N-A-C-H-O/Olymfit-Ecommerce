@@ -1,7 +1,7 @@
 /* import { useContext } from "react";
 import { CartContext } from "../../context/CartContext"; */
 
-import { MdDeleteForever } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import "./ItemCart.css";
 
 
@@ -14,7 +14,7 @@ export const ItemCart = ({item, removeCart}) => {
             <p>{item.quantity} ud/s</p>
             <p>Precio: ${item.price}</p>
             <p>Subtotal: ${item.price * item.quantity}</p>
-            <button onClick={() => removeCart(item.id)} className="btn btn-dark"><MdDeleteForever/></button>
+            <MdDelete onClick={() => removeCart(item.id)} className="btn-cart-delete"/>
         </div>
     )
 }

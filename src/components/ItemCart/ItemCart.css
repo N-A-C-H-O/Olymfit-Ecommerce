@@ -4,6 +4,9 @@
     align-items: center;
     text-align: center;
     margin: 1.5em 0;
+    border: 2px solid #00000028;
+    border-radius: 20px;
+    background-color: white;
 }
 
 .cart-item img {
@@ -12,5 +15,12 @@
 
 .cart-item h4 {   
     width: 30%;
+}
+
+.btn-cart-delete {
+    color: red;
+    margin-bottom: 0.3em;
+    font-size: 2em;
+    cursor: pointer;
 }
 

@@ -1,4 +1,5 @@
 import { FaShoppingCart } from 'react-icons/fa';
+import "./CartWidget.css";
 import { useContext } from 'react';
 import { CartContext} from "../../context/CartContext"
 
@@ -8,7 +9,7 @@ export const CartWidget = () => {
     return (
         <>
             <i className='cart-icon fs-3 me-1'><FaShoppingCart/></i>
-            {getTotalItems() === 0 ? <span className='fs-5'>0</span> : <span className='fs-5'>{getTotalItems()}</span>}
+            {getTotalItems() !== 0 && <span className='cart-counter'>{getTotalItems()}</span>}
         </>
     )
 }
