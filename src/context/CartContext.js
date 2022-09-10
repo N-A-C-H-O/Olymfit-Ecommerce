@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext();
 
@@ -18,15 +20,41 @@ export const CartProvider = ({children}) => {
             const productInCart = cartList.find((item) => item.id === newProduct.id);
             if ( productInCart.quantity + quantity <= product.stock) {
                 productInCart.quantity += quantity;
-                alert('Nuevo producto agregado');
+                toast.success('Agregaste productos al carrito 🛒', {
+                    position: "top-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+
             } else {
-                alert('Stock no disponible')
+                toast.error('Stock no disponible 😕', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             }
         } 
         
         else {
             const newCartList = [...cartList, newProduct];
             setCartList(newCartList); 
+            toast.success('Agregaste productos al carrito 🛒', {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         }
         
     }
@@ -44,8 +72,12 @@ export const CartProvider = ({children}) => {
         return cartList.reduce((acc,item) => acc + item.price * item.quantity,0)
     }
 
+    const getTotalItems = () => {
+        return cartList.reduce((acc,item) => acc + item.quantity ,0)
+    }
+
     return(
-        <CartContext.Provider value={{cartList,addCart,removeCart,getTotalPrice,clearCart}}>
+        <CartContext.Provider value={{cartList,addCart,removeCart,getTotalPrice,clearCart, getTotalItems}}>
             {children}
         </CartContext.Provider>
     )

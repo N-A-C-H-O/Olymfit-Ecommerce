@@ -4,6 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { ItemCount } from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import { CartContext } from "../../context/CartContext";
+import { ToastContainer } from 'react-toastify';
 
 export const ItemDetail = ({item}) => {
     const { addCart } = useContext(CartContext);
@@ -25,6 +26,7 @@ export const ItemDetail = ({item}) => {
                 {
                     productosAgregados ? <LinkContainer to="/cart"><button className="btn btn-dark mb-4 p-2">Ir al carrito</button></LinkContainer> : <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
                 }
+                <ToastContainer/>
             </div>
         </div>
     );
