@@ -7,9 +7,32 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const [cartList, setCartList] = useState([]);
 
-
     const isInCart = (product) => {
         return cartList.some((item) => item.id === product.id);
+    }
+
+    const errorNotif = (message) => {
+        toast.error(message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+    }
+    
+    const successNotif = (message) => {
+        toast.success(message, {
+            position: "top-right",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
     }
 
     const addCart = (product, quantity) => {
@@ -20,41 +43,17 @@ export const CartProvider = ({children}) => {
             const productInCart = cartList.find((item) => item.id === newProduct.id);
             if ( productInCart.quantity + quantity <= product.stock) {
                 productInCart.quantity += quantity;
-                toast.success('Agregaste productos al carrito 🛒', {
-                    position: "top-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    });
+                successNotif('Agregaste productos al carrito 🛒');
 
             } else {
-                toast.error('Stock no disponible 😕', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    });
+                errorNotif('Stock no disponible 😕');
             }
         } 
         
         else {
             const newCartList = [...cartList, newProduct];
             setCartList(newCartList); 
-            toast.success('Agregaste productos al carrito 🛒', {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
+            successNotif('Agregaste productos al carrito 🛒');
         }
         
     }
