@@ -24,7 +24,12 @@ export const ItemDetail = ({item}) => {
                 <p className="detail-content__description">{item.description}</p>
                 <p className="detail-content__price">${item.price}</p>
                 {
-                    productosAgregados ? <LinkContainer to="/cart"><button className="btn btn-dark mb-4 p-2">Ir al carrito</button></LinkContainer> : <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
+                    productosAgregados ? 
+                    <div>
+                        <LinkContainer to="/"><button className="btn btn-dark mb-4 p-2 me-4">Seguir comprando</button></LinkContainer>
+                        <LinkContainer to="/cart"><button className="btn btn-dark mb-4 p-2">Ir al carrito</button></LinkContainer>
+                    </div> : 
+                    <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
                 }
                 <ToastContainer/>
             </div>
