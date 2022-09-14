@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import { promiseProductos } from "../../helper/helper";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../utils/Firebase";
 import { SpinnerComp } from "../Spinner/Spinner";
 import { useParams } from "react-router-dom";
 
 
 export const ItemListContainer = () => {
-    const [productos,setProductos] = useState([]);
+    const [products,setProducts] = useState([]);
 
     const [loading,setLoading] = useState(true);
 
@@ -14,28 +15,34 @@ export const ItemListContainer = () => {
 
     
     useEffect(() => {
-        setLoading(true)
-        const obtenerProductos = async () => {
+        const getProducts = async () => {
             try {
-                const data = await promiseProductos();
+                const query = collection(db,"items");
+                const response = await getDocs(query);
+                const docs = response.docs;
+                const data = docs.map(doc => {
+                    return {
+                        ...doc.data(), id: doc.id
+                    }
+                });
                 if (categoryId === undefined) {
-                    setProductos(data);
+                    setProducts(data);
                 } else {
-                    const filtradoCategoria = data.filter((item) => item.categoria === categoryId);
-                    setProductos(filtradoCategoria);
+                    const categoryFilter = data.filter((item) => item.categoria === categoryId);
+                    setProducts(categoryFilter);
                 }
                 setLoading(false);
             } catch (error) {
                 console.log(`Error al intentar conectar con el servidor ${error}`);
             }
         }
-        obtenerProductos()
+        getProducts()
     },[categoryId]);
 
     return (
         <>
             {
-                loading ? <SpinnerComp/> : <ItemList items= {productos}/>
+                loading ? <SpinnerComp/> : <ItemList items= {products}/>
             }
         </>
     )
