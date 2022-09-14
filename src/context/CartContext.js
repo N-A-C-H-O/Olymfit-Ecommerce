@@ -1,11 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartList));
+    },[cartList])
+
 
     const isInCart = (product) => {
         return cartList.some((item) => item.id === product.id);
@@ -72,7 +77,7 @@ export const CartProvider = ({children}) => {
     }
 
     const getTotalItems = () => {
-        return cartList.reduce((acc,item) => acc + item.quantity ,0)
+        return cartList.reduce((acc,item) => acc + item.quantity,0)
     }
 
     return(
