@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../utils/Firebase";
 import { SpinnerComp } from "../Spinner/Spinner";
 import { useParams } from "react-router-dom";
@@ -13,23 +13,27 @@ export const ItemListContainer = () => {
 
     const { categoryId } = useParams();
 
-    
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const query = collection(db,"items");
-                const response = await getDocs(query);
-                const docs = response.docs;
-                const data = docs.map(doc => {
+                if (categoryId === undefined) {
+                    const query = collection(db,"items");
+                    const response = await getDocs(query);
+                    const docs = response.docs;
+                    const data = docs.map(doc => {
                     return {
                         ...doc.data(), id: doc.id
-                    }
-                });
-                if (categoryId === undefined) {
+                    }});
                     setProducts(data);
                 } else {
-                    const categoryFilter = data.filter((item) => item.categoria === categoryId);
-                    setProducts(categoryFilter);
+                    const queryCategory = query(collection(db,"items"), where("categoria", "==", categoryId));
+                    const responseCategory = await getDocs(queryCategory);
+                    const docsCategory = responseCategory.docs;
+                    const dataCategory = docsCategory.map(doc => {
+                        return {
+                            ...doc.data(), id: doc.id
+                        }});
+                    setProducts(dataCategory);
                 }
                 setLoading(false);
             } catch (error) {
