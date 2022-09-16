@@ -6,10 +6,12 @@ export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
     const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+    const [cartQty, setCartQty] = useState(0);
+
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartList));
-    },[cartList])
+    },[cartList,cartQty])
 
 
     const isInCart = (product) => {
@@ -48,6 +50,7 @@ export const CartProvider = ({children}) => {
             const productInCart = cartList.find((item) => item.id === newProduct.id);
             if ( productInCart.quantity + quantity <= product.stock) {
                 productInCart.quantity += quantity;
+                setCartQty(cartQty + quantity);
                 successNotif('Agregaste productos al carrito 🛒');
 
             } else {
@@ -57,6 +60,7 @@ export const CartProvider = ({children}) => {
         
         else {
             const newCartList = [...cartList, newProduct];
+            setCartQty(cartQty + quantity);
             setCartList(newCartList); 
             successNotif('Agregaste productos al carrito 🛒');
         }
@@ -69,7 +73,8 @@ export const CartProvider = ({children}) => {
     }
 
     const clearCart = () => {
-        setCartList([])
+        setCartList([]);
+        setCartQty(0);
     }
 
     const getTotalPrice = () => {
