@@ -21,7 +21,7 @@ form {
 .form-section label,
 .form-section input {
     display: inline-block;
-    width: 100%;
+    width: 90%;
 }
 
 .form-section input {
@@ -31,9 +31,10 @@ form {
     padding: 0.4em 0.4em 0.4em 1em;
 }
 
-.form-section input:focus {
-    background-color: #00000011;
+.form-section input:focus  {
+    background-color: #ddd;
     transition: 0.5s;
+    
 }
 
 form button {
