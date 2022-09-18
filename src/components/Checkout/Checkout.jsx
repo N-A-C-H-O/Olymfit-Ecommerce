@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../utils/Firebase";
 import { UserOrder } from "../UserOrder/UserOrder";
 
@@ -74,6 +74,13 @@ export const Checkout = () => {
             });
     }
 
+    const updateStock = () => {
+        cartList.forEach((item) => {
+            const orderDoc = doc(db,"items",item.id);
+            updateDoc(orderDoc, {stock: item.stock - item.quantity});
+        });
+    }
+
     const sendOrder = (e) => {
         e.preventDefault();
         if (validForm.name && validForm.surname && validForm.email && validForm.tel) {
@@ -91,10 +98,11 @@ export const Checkout = () => {
             addDoc(ordersCollection,order).then(({id}) => setOrderId(id)).catch((error) => {
                 console.log(`Error al intentar conectar con el servidor: ${error}`);
             });
-            clearCart()
-            successNotif('Datos enviados correctamente!')
+            updateStock();
+            clearCart();
+            successNotif('Datos enviados correctamente!');
         } else {
-            errorNotif('Sus datos son incorrectos. Por favor, rellene el formulario.')
+            errorNotif('Sus datos son incorrectos. Por favor, rellene el formulario.');
         }
     }
 

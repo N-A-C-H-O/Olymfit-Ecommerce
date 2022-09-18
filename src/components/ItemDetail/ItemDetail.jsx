@@ -16,6 +16,8 @@ export const ItemDetail = ({item}) => {
         addCart(item, items);
     }
 
+    console.log(item.stock)
+
     return(
         <div className="detail-container">
             <img src={item.image} className="detail-img" alt="Imagen" />
@@ -29,7 +31,7 @@ export const ItemDetail = ({item}) => {
                         <LinkContainer to="/"><button className="btn btn-dark mb-4 p-2 me-4">Seguir comprando</button></LinkContainer>
                         <LinkContainer to="/cart"><button className="btn btn-dark mb-4 p-2">Ir al carrito</button></LinkContainer>
                     </div> : 
-                    <ItemCount initial={1} stock={item.stock} onAdd={agregarProductos}/>
+                    <ItemCount initial={item.stock === 0 ? 0 : 1} stock={item.stock} onAdd={agregarProductos}/>
                 }
                 <ToastContainer/>
             </div>

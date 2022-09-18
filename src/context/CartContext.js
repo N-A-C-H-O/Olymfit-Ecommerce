@@ -48,7 +48,7 @@ export const CartProvider = ({children}) => {
         
         if (isInCart(newProduct)) {
             const productInCart = cartList.find((item) => item.id === newProduct.id);
-            if ( productInCart.quantity + quantity <= product.stock) {
+            if ( product.stock !== 0 && productInCart.quantity + quantity <= product.stock) {
                 productInCart.quantity += quantity;
                 setCartQty(cartQty + quantity);
                 successNotif('Agregaste productos al carrito 🛒');
