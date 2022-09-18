@@ -8,10 +8,10 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../utils/Firebase";
-import { useEffect } from "react";
+import { UserOrder } from "../UserOrder/UserOrder";
 
 export const Checkout = () => {
-    const {cartList,getTotalPrice} = useContext(CartContext);
+    const {cartList,getTotalPrice,clearCart} = useContext(CartContext);
 
     const [inputName,setInputName] = useState("");
 
@@ -88,55 +88,54 @@ export const Checkout = () => {
                 total: getTotalPrice(),
             }
             const ordersCollection = collection(db,"orders");
-            addDoc(ordersCollection,order).then(({id}) => setOrderId(id)).catch((err) => {
-                console.log(err);
-                errorNotif('Error! Inténtelo más tarde');
+            addDoc(ordersCollection,order).then(({id}) => setOrderId(id)).catch((error) => {
+                console.log(`Error al intentar conectar con el servidor: ${error}`);
             });
+            clearCart()
             successNotif('Datos enviados correctamente!')
         } else {
             errorNotif('Sus datos son incorrectos. Por favor, rellene el formulario.')
         }
     }
 
-    useEffect(() => {
-        console.log(orderId)
-    },[orderId])
-
-    
-    return(
-        <>
-            <form onSubmit={sendOrder}>
-                <div className="form-section">
-                    <label>Nombre</label>
-                    <input onKeyUp={validName} onChange={(e) => setInputName(e.target.value)} type="text" placeholder="Nombre"/>
-                    {
-                        validForm.name ? <span><AiFillCheckCircle/></span> : inputName === "" ? "" : <span><MdError/></span>
-                    } 
-                </div>
-                <div className="form-section">
-                    <label>Apellido</label>
-                    <input onKeyUp={validSurname} onChange={(e) => setInputSurname(e.target.value)} type="text" placeholder="Apellido"/>
-                    {
-                        validForm.surname ? <span><AiFillCheckCircle/></span> : inputSurname === "" ? "" : <span><MdError/></span>
-                    } 
-                </div>
-                <div className="form-section">
-                    <label>Email</label>
-                    <input onKeyUp={validEmail} onChange={(e) => setInputEmail(e.target.value)} type="text" placeholder="Correo electrónico"/>
-                    {
-                        validForm.email ? <span><AiFillCheckCircle/></span> : inputEmail === "" ? "" : <span><MdError/></span>
-                    } 
-                </div>
-                <div className="form-section">
-                    <label>Teléfono</label>
-                    <input onKeyUp={validTel} onChange={(e) => setInputTel(e.target.value)} type="text" placeholder="Número de teléfono" maxLength={15}/>
-                    {
-                        validForm.tel ? <span><AiFillCheckCircle/></span> : inputTel === "" ? "" : <span><MdError/></span>
-                    } 
-                </div>
-                <button className="btn d-block mt-5">Finalizar compra</button>
-            </form>
-            <ToastContainer/>
-        </>
-    )
-}
+    if (orderId !== "") {
+        return <UserOrder order={orderId}/>
+    } else {
+        return(
+            <>
+                <form onSubmit={sendOrder}>
+                    <div className="form-section">
+                        <label>Nombre</label>
+                        <input onKeyUp={validName} onChange={(e) => setInputName(e.target.value)} type="text" placeholder="Nombre"/>
+                        {
+                            validForm.name ? <span><AiFillCheckCircle/></span> : inputName === "" ? "" : <span><MdError/></span>
+                        } 
+                    </div>
+                    <div className="form-section">
+                        <label>Apellido</label>
+                        <input onKeyUp={validSurname} onChange={(e) => setInputSurname(e.target.value)} type="text" placeholder="Apellido"/>
+                        {
+                            validForm.surname ? <span><AiFillCheckCircle/></span> : inputSurname === "" ? "" : <span><MdError/></span>
+                        } 
+                    </div>
+                    <div className="form-section">
+                        <label>Email</label>
+                        <input onKeyUp={validEmail} onChange={(e) => setInputEmail(e.target.value)} type="text" placeholder="Correo electrónico"/>
+                        {
+                            validForm.email ? <span><AiFillCheckCircle/></span> : inputEmail === "" ? "" : <span><MdError/></span>
+                        } 
+                    </div>
+                    <div className="form-section">
+                        <label>Teléfono</label>
+                        <input onKeyUp={validTel} onChange={(e) => setInputTel(e.target.value)} type="text" placeholder="Número de teléfono" maxLength={15}/>
+                        {
+                            validForm.tel ? <span><AiFillCheckCircle/></span> : inputTel === "" ? "" : <span><MdError/></span>
+                        } 
+                    </div>
+                    <button className="btn d-block mt-5">Finalizar compra</button>
+                </form>
+                <ToastContainer/>
+            </>
+        )
+    }
+} 

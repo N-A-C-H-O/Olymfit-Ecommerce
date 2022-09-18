@@ -25,7 +25,7 @@ export const ItemDetailContainer = () => {
                 setProduct(data);
                 setLoading(false);
             } catch (error) {
-                console.log(`Error al intentar conectar con el servidor ${error}`);
+                console.log(`Error al intentar conectar con el servidor: ${error}`);
             }
         }
 
