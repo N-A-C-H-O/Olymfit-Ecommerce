@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../utils/Firebase";
-import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { SpinnerComp } from "../Spinner/Spinner";
+import { db } from '../../utils/Firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { SpinnerComp } from '../Spinner/Spinner';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 export const ItemDetailContainer = () => {
@@ -16,20 +16,20 @@ export const ItemDetailContainer = () => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const query = doc(db, "items", itemId);
+                const query = doc(db, 'items', itemId);
                 const response = await getDoc(query);
                 const data = {
                     ...response.data(),
                     id: response.id
                 }
                 setProduct(data);
-                setLoading(false);
             } catch (error) {
                 console.log(`Error al intentar conectar con el servidor: ${error}`);
+            } finally {
+                setLoading(false);
             }
         }
-
-        getProduct()
+        getProduct();
     },[itemId]);
 
     return(
