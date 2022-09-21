@@ -1,6 +1,5 @@
-import 'react-toastify/dist/ReactToastify.css';
 import { createContext, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { errorNotif,successNotif} from '../helper/helper';
 
 export const CartContext = createContext();
 
@@ -15,30 +14,6 @@ export const CartProvider = ({children}) => {
 
     const isInCart = (product) => {
         return cartList.some((item) => item.id === product.id);
-    }
-
-    const errorNotif = (message) => {
-        toast.error(message, {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
-    }
-    
-    const successNotif = (message) => {
-        toast.success(message, {
-            position: 'top-right',
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
     }
 
     const addCart = (product, quantity) => {

@@ -33,12 +33,8 @@ export const NavbarComp = () => {
                                 </LinkContainer>
                             </NavDropdown>
                         </div>
-                        <LinkContainer to='/nosotros'>
-                            <Nav.Link className='navbar-link fs-4 me-5'>Nosotros</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to='/contacto'>
-                            <Nav.Link className='navbar-link fs-4 me-5'>Contacto</Nav.Link>
-                        </LinkContainer>
+                        <Nav.Link className='navbar-link fs-4 me-5'>Nosotros</Nav.Link>
+                        <Nav.Link className='navbar-link fs-4 me-5'>Contacto</Nav.Link>
                         <LinkContainer to='/cart'>
                             <div className='cart-container'>
                                 <CartWidget />
