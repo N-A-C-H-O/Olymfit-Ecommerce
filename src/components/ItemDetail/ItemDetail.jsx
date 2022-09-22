@@ -1,4 +1,5 @@
 import './ItemDetail.css';
+import { BiBox } from 'react-icons/bi';
 import { CartContext } from '../../context/CartContext';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -22,6 +23,7 @@ export const ItemDetail = ({item}) => {
             <div className='detail-content'>
                 <h2 className='detail-content__name'>{item.name}</h2>
                 <p className='detail-content__description'>{item.description}</p>
+                <p className='fw-bold'><i className='me-2 fs-3'><BiBox/></i>Disponibles: {item.stock}</p>
                 <p className='detail-content__price'>${item.price}</p>
                 {
                     isAdded ? 
