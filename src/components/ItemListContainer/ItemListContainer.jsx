@@ -12,6 +12,8 @@ export const ItemListContainer = () => {
 
     const { categoryId } = useParams();
 
+    document.title = !categoryId ? "Inicio - OlymFit" : "Productos - Olymfit";
+
     useEffect(() => {
         const getProducts = async () => {
             try {

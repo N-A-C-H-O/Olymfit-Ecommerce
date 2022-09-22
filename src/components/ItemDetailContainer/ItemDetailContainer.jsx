@@ -13,6 +13,8 @@ export const ItemDetailContainer = () => {
 
     const { itemId } = useParams();
 
+    document.title = !product.name ? "..." : `${product.name} - OlymFit`;
+
     useEffect(() => {
         const getProduct = async () => {
             try {

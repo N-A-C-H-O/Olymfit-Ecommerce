@@ -8,6 +8,8 @@ import { useContext } from 'react';
 
 export const CartContainer = () => {
     const { cartList } = useContext(CartContext);
+
+    document.title = "Carrito - OlymFit";
     
     return(
         <div>

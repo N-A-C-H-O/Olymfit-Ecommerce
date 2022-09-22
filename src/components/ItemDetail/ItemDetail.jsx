@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import { useState } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
-import { ItemCount } from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import { CartContext } from '../../context/CartContext';
+import { ItemCount } from '../ItemCount/ItemCount';
+import { LinkContainer } from 'react-router-bootstrap';
 import { ToastContainer } from 'react-toastify';
+import { useContext } from 'react';
+import { useState } from 'react';
 
 export const ItemDetail = ({item}) => {
     const { addCart } = useContext(CartContext);

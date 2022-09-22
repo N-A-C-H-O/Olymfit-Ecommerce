@@ -9,7 +9,7 @@ export const Footer = () => {
             <div className='footer-container'>
                 <div className='footer-section'>
                     <h4>Categorías</h4>
-                    <div className='footer-section-content'>
+                    <div className='footer-section-content footer-links'>
                         <p>Privacidad</p>
                         <p>Devoluciones</p>
                         <p>Contacto</p>
@@ -26,7 +26,7 @@ export const Footer = () => {
                 </div>
                 <div className='footer-section'>
                     <h4>Sigamos conectados</h4>
-                    <div className='footer-section-content social-container'>
+                    <div className='footer-section-content footer-social'>
                         <a href='https:/instagram.com'><i><BsInstagram /></i></a>
                         <a href='https:/facebook.com'><i><BsFacebook/></i></a>
                         <a href='https:/whatsapp.com'><i><BsWhatsapp/></i></a>

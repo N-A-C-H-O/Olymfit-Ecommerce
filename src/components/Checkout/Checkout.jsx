@@ -1,10 +1,10 @@
 import './Checkout.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { addDoc, collection, updateDoc, doc } from 'firebase/firestore';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { CartContext } from '../../context/CartContext';
 import { db } from '../../utils/Firebase';
-import { errorNotif,successNotif} from '../../helper/helper';
+import { errorNotif, successNotif} from '../../helper/helper';
 import { MdError } from 'react-icons/md';
 import { ToastContainer } from 'react-toastify';
 import { useContext, useState } from 'react';
@@ -28,6 +28,8 @@ export const Checkout = () => {
     });
 
     const [orderId,setOrderId] = useState('');
+
+    document.title = "Checkout - OlymFit";
 
     const formInfo = [
         {

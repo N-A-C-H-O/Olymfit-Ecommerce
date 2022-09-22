@@ -3,6 +3,8 @@ import { FaRegSadTear } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 
 export const NoPage = () => {
+    document.title = "OlymFit - 404";
+
     return(
         <div className='nopage-container'>
             <p>Oops! <i className='nopage-icon'><FaRegSadTear/></i></p>
